@@ -51,6 +51,18 @@
         document.getElementById("critical").innerHTML = json.critical;
       }
     });
+
+    $.ajax({
+      url: 'https://coronavirus-19-api.herokuapp.com/all',
+      dataType: 'json',
+      success: function(data) {
+        var json = data;
+        document.getElementById("confirmed-world").innerHTML = json.cases;
+        document.getElementById("recovered-world").innerHTML = json.recovered;
+        document.getElementById("deaths-world").innerHTML = json.deaths;
+      }
+    });
+
 </script>
 <body class="">
   <div class="wrapper">
@@ -60,7 +72,7 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
-          <h2 style="padding-left: 10%;">CORONAVIRUS BRASIL</h2>
+          <h2 style="padding-left: 10%;">CORONAVIRUS | BRASIL</h2>
         </div>
         <div class="row">
           <div class="col-lg-4">
@@ -111,6 +123,37 @@
               <div class="card-header">
                 <h5 class="card-category">FALECIMENTOS DE HOJE</h5>
                 <h1 class="card-title"><i class="tim-icons icon-sound-wave text-success"></i>  <a id="todayDeaths">...</a></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2 style="padding-left: 10%;">CORONAVIRUS | MUNDO</h2>
+        </div>
+ 
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">TOTAL DE CASOS</h5>
+                <h1 class="card-title"><i class="tim-icons icon-check-2 text-primary"></i>  <a id="confirmed-world">...</a></h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">TOTAL DE RECUPERADOS</h5>
+                <h1 class="card-title"><i class="tim-icons icon-refresh-01 text-info"></i>  <a id="recovered-world">...</a></h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">TOTAL DE FALECIMENTOS</h5>
+                <h1 class="card-title"><i class="tim-icons icon-sound-wave text-success"></i>  <a id="deaths-world">...</a></h1>
               </div>
             </div>
           </div>
